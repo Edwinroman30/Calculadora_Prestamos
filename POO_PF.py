@@ -34,12 +34,6 @@ class Calculadora_Prestamos:
             
             #Para resolver el error logico de indexacion   
              
-            if(x==2):
-                last_index = last_index - last_index
-            elif(x>2):
-                last_index=+1
-                
-            
             if(x == 1):
                 saldo_inicial = self.monto 
                 intereses = (saldo_inicial*self.tasa_mensual)
