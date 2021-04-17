@@ -8,16 +8,16 @@ class Calculadora_Prestamos:
         
         self.tabla = []
         
-
-   #def Cuota_mensual(self):
             
     def Entrada_data(self,p_monto,p_tasa,p_plazo):
+        #TOMAR ESTE PUNTO EN CUENTA PARA HACER LA ENTRADA POR TECLADO.
         self.monto = p_monto
         self.tasa_mensual = ((p_tasa/12)/100)
         self.plazo = p_plazo
         
         self.cuota = round( ((self.monto * self.tasa_mensual) / (1 - (1+self.tasa_mensual)**-self.plazo)) ,2)
    
+    #!Codigo TEMPORAL
     def ver(self):
         print('CUota de ',self.cuota)
         print(self.tasa_mensual)
