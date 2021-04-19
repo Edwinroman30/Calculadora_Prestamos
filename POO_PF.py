@@ -72,3 +72,8 @@ calculador = Calculadora_Prestamos() #DENIENDO EL OBJETO
 calculador.Entrada_data() #ENTRADA DE DATOS
 calculador.General_tabla_amortizacion() #PROCESO QUE HACE LOS CALCULOS
 calculador.Mostrar_tabla_amortizacion() #MUESTRA DE LA TABLA
+
+#Edwin Alberto Roman Seberino
+#2020-10233
+#Grupo o Seccion - #11
+#Fundamentos de programación-2021-C-1-Miguel Liceares Moreta Rodriguez
