@@ -1,3 +1,4 @@
+#MODULOS A USAR:
 from tabulate import tabulate
 from datetime import timedelta,datetime
 
@@ -11,23 +12,27 @@ class Calculadora_Prestamos:
         
         self.tabla_amortizacion = []
         
-            
+        print('Edwin Dev Presenta: Calculadora de Prestamos \n')
+        
+    #El método [Entrada_data] es super importante porque permite ingresar los datos esenciales.        
     def Entrada_data(self):
-        #TOMAR ESTE PUNTO EN CUENTA PARA HACER LA ENTRADA POR TECLADO.
         self.monto = float(input('Monto del prestamo en RD$: '))
-        #converTasa = ((float(input('Monto del prestamo en RD$: '))/12)/100)
+        
+        #*En este proceso se convierte directamente la tasa de anual a tasa mensual.
         self.tasa_mensual = ((float(input('Tasa de Porcentaje Anual: '))/12)/100)
+        
         self.plazo = int(input('Plazo en meses: '))
         
+        #Aquí simplemente con los datos anteriormente recolectados se esta CALCULANDO LA CUOTA.
         self.cuota = round( ((self.monto * self.tasa_mensual) / (1 - (1+self.tasa_mensual)**-self.plazo)) ,2)
    
     
-    #Muestra la tabla_amortizacion
+    #El método [Mostrar_tabla_amortizacion] muestra la tabla_amortizacion usando TABULATE.
     def Mostrar_tabla_amortizacion(self):
         print(tabulate(self.tabla_amortizacion, floatfmt='.2f',headers=["Pago","Fecha Pago","Saldo Iniciar","Cuota","Capital","Interes","Balance"], tablefmt='fancy_grid'))
 
     
-    #Metodo nucleo que me permite general los calculos.
+    #El método [General_tabla_amortizacion] es el nucleo que me permite general los cálculos.
     def General_tabla_amortizacion(self):
         
         #Para poder trabajar con la fecha.
@@ -60,9 +65,10 @@ class Calculadora_Prestamos:
     
   
 
+#INSTANCIANDO LA CLASE:
 
-#INSTANCIANDO LA CLASE
-calculador = Calculadora_Prestamos()
-calculador.Entrada_data()
-calculador.General_tabla_amortizacion()
-calculador.Mostrar_tabla_amortizacion()
+calculador = Calculadora_Prestamos() #DENIENDO EL OBJETO
+
+calculador.Entrada_data() #ENTRADA DE DATOS
+calculador.General_tabla_amortizacion() #PROCESO QUE HACE LOS CALCULOS
+calculador.Mostrar_tabla_amortizacion() #MUESTRA DE LA TABLA
