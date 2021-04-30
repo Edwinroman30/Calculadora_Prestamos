@@ -18,7 +18,7 @@ class Calculadora_Prestamos:
     def Entrada_data(self):
         self.monto = float(input('Monto del prestamo en RD$: '))
         
-        #*En este proceso se convierte directamente la tasa de anual a tasa mensual.
+        #*En este proceso se convierte directamente la tasa de anual a tasa mensual. Y también se termina de convertir en porcentuaje.
         self.tasa_mensual = ((float(input('Tasa de Porcentaje Anual: '))/12)/100)
         
         self.plazo = int(input('Plazo en meses: '))
@@ -39,7 +39,7 @@ class Calculadora_Prestamos:
         formato_fecha = "%d-%b-%Y"
         fecha_prestamo = datetime.now()
 
-
+        #Esto se repetirá según el PLAZO. 
         for x in range(1,(self.plazo+1),1):
             
             #Por cada ciclo sumo un mes a la fecha actuar.
@@ -51,6 +51,7 @@ class Calculadora_Prestamos:
                 capital =  round((self.cuota - intereses) ,2) 
                 saldo_final = round(saldo_inicial - capital,2) 
                 
+                #Orden de inserción: [Num_pago, fecha_prestamo, saldo inicial generado, cuota, capital generado, interes generado, saldo final o balance generado]
                 self.tabla_amortizacion.append([x,fecha_prestamo.strftime(formato_fecha),saldo_inicial,self.cuota,capital,intereses,saldo_final])
                 
             else:
